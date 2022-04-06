@@ -1,6 +1,6 @@
 import Player from './player';
 
-interface GameResponse {
+export interface GameResponse {
   success: boolean,
   message: string,
 }
@@ -22,6 +22,7 @@ const systemMessages = {
 export default class Game {
   players: Array<Player> = [];
   state: 'creating' | 'running' | 'finished' = 'creating';
+  turn: Player | null = null;
 
   response(success: boolean, message: string): GameResponse {
     return { success, message };
@@ -62,6 +63,11 @@ export default class Game {
     return this.response(true, systemMessages['join success'](player.nick));
   }
 
+  /**
+   * Leave a game that is not yet initialized if the player is in
+   * @param player the player who tries to leave
+   * @returns A proper response
+   */
   leave(player: Player): GameResponse {
     if (this.state !== 'creating') {
       return this.response(false, systemMessages['already init']);
