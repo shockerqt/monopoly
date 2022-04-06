@@ -1,0 +1,37 @@
+{
+  "name": "monopoly",
+  "version": "0.0.1",
+  "description": "Monopoly with waifus",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "tsc --rootDir src --outDir dist",
+    "start": "node dist/app.js",
+    "dev": "rm -rf dist && npm run build && npm run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shockerqt/monopoly.git"
+  },
+  "author": "shocker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shockerqt/monopoly/issues"
+  },
+  "homepage": "https://github.com/shockerqt/monopoly#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "typedoc": "^0.22.13"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.23",
+    "@typescript-eslint/eslint-plugin": "^5.18.0",
+    "@typescript-eslint/parser": "^5.18.0",
+    "eslint": "^8.12.0",
+    "typescript": "^4.6.3"
+  }
+}
